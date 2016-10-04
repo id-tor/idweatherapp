@@ -1,0 +1,19 @@
+/* app css stylesheet */
+
+body {
+    padding-top: 80px;
+    padding-bottom: 180px;
+}
+
+.city-search {
+  float: right;
+}
+
+
+.weather.panel .panel-heading {
+    font-size: 1.2em;
+}
+
+.weather.panel .panel-footer {
+
+}
