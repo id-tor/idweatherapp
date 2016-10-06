@@ -6,11 +6,13 @@ angular.module('openWeatherApp.controllers', [])
 
   // Controller for "open weather map" api data search
   .controller('OpenWeatherCtrl',
-    ['$scope','$http','openWeatherMap','ISO3166',
-      function($scope,$http,openWeatherMap,ISO3166) {
+    ['$scope','$http','openWeatherMap','ISO3166', 'openWeatherAPI',
+      function($scope,$http,openWeatherMap,ISO3166, openWeatherAPI) {
 
     $scope.hasState = 'has-warning';
     $scope.message = 'Please provide a location';
+
+
 
     // Expose user locations
     if (navigator.geolocation) navigator.geolocation.getCurrentPosition(onPositionUpdate);
@@ -50,6 +52,10 @@ angular.module('openWeatherApp.controllers', [])
     $scope.setLocation = function(loc) {
       $scope.location = loc;
       $scope.getForecastByLocation();
+      //example
+      //openWeatherAPI.getDataByCityName(loc)
+      // .then(function(response) { $scope.message = response.data.name; }) //success
+      // .catch(function(response) { $scope.message = response.data.message; }) //error
     };
 
     // Get icon image url
